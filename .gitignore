@@ -1,0 +1,13 @@
+# VS Code settings
+.vscode/
+
+# Dossiers binaires
+bin/
+
+# Fichiers temporaires / objets
+*.o
+*.obj
+*.exe
+
+# SDL DLLs (optionnel si tu ne veux pas les versionner)
+*.dll

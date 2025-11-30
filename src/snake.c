@@ -4,6 +4,7 @@
 #include <SDL.h>
 
 #include "snake.h"
+#include "enums.h"
 
 // Fonctions du serpent
 
@@ -25,8 +26,7 @@ Snake initSnake(void)
     return snake;
 }
 
-void drawBodySnake(SDL_Renderer *render, Snake snake, SDL_Rect area[20][20]
-)
+void drawBodySnake(SDL_Renderer *render, Snake snake, SDL_Rect area[20][20])
 {
     SDL_Rect rect;
     SDL_SetRenderDrawColor(render, 0,251,0,255);
@@ -50,24 +50,24 @@ void drawSnakeHead(SDL_Renderer *render, Snake snake, SDL_Rect area[20][20])
     drawBodySnake(render, snake, area);
 }
 
-void updateSnakeHead(Snake *snake, char command)
+void updateSnakeHead(Snake *snake, Directions direction)
 {
     int line, col;
-    switch (command)
+    switch (direction)
     {
-        case 'u':
+        case DIR_Up:
             line = -1;
             col = 0;
             break;
-        case 'd':
+        case DIR_Down:
             line = 1;
             col = 0;
             break;
-        case 'l':
+        case DIR_Left:
             col = -1;
             line = 0;
             break;
-        case 'r':
+        case DIR_Right:
             col = 1;
             line = 0;
             break;
@@ -98,7 +98,7 @@ void updateSnakeHead(Snake *snake, char command)
     }
 }
 
-void addBodySnake(Snake *snake, char command)
+void addBodySnake(Snake *snake)
 {
     if (snake->bodiesNumber == 0)
     {

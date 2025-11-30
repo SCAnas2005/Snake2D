@@ -4,6 +4,8 @@
 
 #include <SDL.h>
 #include "apple.h"
+#include "enums.h"
+
 
 typedef struct SnakeBody
 {
@@ -26,9 +28,9 @@ Snake initSnake(void); // Initialise un serpent
 void drawBodySnake(SDL_Renderer *render, Snake snake, SDL_Rect area[20][20]); // Dessine le corps
 void drawSnakeHead(SDL_Renderer *render, Snake snake, SDL_Rect area[20][20]); // Dessine le serpent
 
-void updateSnakeHead(Snake *snake, char command); // permet le déplacement du serpent
+void updateSnakeHead(Snake *snake, Directions direction); // permet le déplacement du serpent
 
-void addBodySnake(Snake *snake, char command); // Ajout d'un corps du serpent
+void addBodySnake(Snake *snake); // Ajout d'un corps du serpent
 
 int snakeCollision(Snake snake); // Detection colision snake corps
 int snakeAppleColision(Snake snake, Apple apple); // Detection collision snake pomme.
